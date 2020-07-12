@@ -19,13 +19,14 @@ const getEnhancers = () => {
 
 const persistConfig = {
   key: 'root',
-  whitelist: [],
+  whitelist: ['app'],
   storage,
 };
+
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 const store = createStore(persistedReducer, composeWithDevTools(getEnhancers()));
-// @ts-ignore
+
 const persistor = persistStore(store);
 
 sagaMiddleware.run(rootSaga);

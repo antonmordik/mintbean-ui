@@ -2,8 +2,11 @@ import React, { useState, useCallback } from 'react';
 
 import styles from './styles.module.css';
 import { Input, Button } from 'antd';
+import { signUp } from '../../store/app/actions';
+import { useDispatch } from 'react-redux';
 
 const SignUp: React.FC = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
@@ -24,6 +27,12 @@ const SignUp: React.FC = () => {
   const onNicknameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
     setNickname(e.currentTarget.value);
   }, [setNickname]);
+
+  const onBtnSubmit = useCallback(() => {
+    if (password === confirm) {
+      dispatch(signUp({ email, password, nickname }));
+    }
+  }, [dispatch, email, password, confirm, nickname]);
 
   return (
     <div className={styles.container}>
@@ -58,7 +67,7 @@ const SignUp: React.FC = () => {
         minLength={3}
         maxLength={16}
       />
-      <Button type="primary">Sign up</Button>
+      <Button type="primary" onClick={onBtnSubmit}>Sign up</Button>
     </div>
   )
 }

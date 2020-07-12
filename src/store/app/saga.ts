@@ -1,6 +1,6 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
-import { fetchMe, login } from '../../api/auth';
-import { requestFail, requestSuccess, getMe, signIn } from './actions';
+import { fetchMe, login, register } from '../../api/auth';
+import { requestFail, requestSuccess, getMe, signIn, signUp } from './actions';
 import { Action } from 'redux-actions';
 
 function* getMeSaga() {
@@ -23,7 +23,18 @@ function* signInSaga({ payload }: Action<{ email: string; password: string }>) {
   }
 }
 
+function* signUpSaga({ payload }: Action<{ email: string; password: string; nickname: string }>) {
+  try {
+    const { user, token } = yield call(register, payload.email, payload.password, payload.nickname);
+    localStorage.setItem('app:token', token);
+    yield put(requestSuccess({ user, token }));
+  } catch(error) {
+    yield put(requestFail({ error }));
+  }
+}
+
 export default function*() {
   yield takeEvery(getMe, getMeSaga);
   yield takeEvery(signIn, signInSaga);
+  yield takeEvery(signUp, signUpSaga);
 }
