@@ -1,0 +1,16 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1px 1fr;
+  grid-column-gap: 50px;
+  width: 100%;
+}
+
+.devider {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  text-align: center;
+  margin-top: 80px;
+  margin-bottom: 40px;
+}

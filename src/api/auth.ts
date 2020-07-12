@@ -9,3 +9,25 @@ export const fetchMe = async (): Promise<{ user: User }> => {
     }
   });
 };
+
+export const login = async (
+  email: string,
+  password: string
+): Promise<{ user: User; token: string }> => {
+  return axios.post('/signin', {
+    email,
+    password
+  });
+};
+
+export const register = async (
+  email: string,
+  password: string,
+  nickname: string
+): Promise<{ user: User; token: string }> => {
+  return axios.post('/signup', {
+    email,
+    password,
+    nickname
+  });
+};
