@@ -4,7 +4,6 @@ import Login from './screens/Login';
 import ProtectedRoute from './components/ProtectedRoute';
 import Lobby from './screens/Lobby';
 
-
 export default (
   <Switch>
     <ProtectedRoute path={'/lobby'} component={Lobby} redirectTo={'/'} />

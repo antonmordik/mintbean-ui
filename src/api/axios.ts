@@ -7,7 +7,7 @@ const instance = axios.create({
 
 instance.interceptors.response.use((res) => {
   if (!res.data) {
-    throw new Error("Server error.");
+    throw new Error('Server error.');
   }
   return res.data;
 });

@@ -7,7 +7,7 @@ const DEFAULT_STATE: IAppState = {
   fetching: false,
   user: null,
   token: null,
-  error: null
+  error: null,
 };
 
 export interface IAppState {
@@ -21,25 +21,19 @@ export default handleActions<IAppState, any>(
   {
     [signIn.toString()]: (state) => ({ ...state, fetching: true }),
     [signUp.toString()]: (state) => ({ ...state, fetching: true }),
-    [requestSuccess.toString()]: (
-      state,
-      { payload }: Action<{ user: User; token: string; }>
-      ) => ({
-        ...state,
-        fetching: false,
-        user: payload.user,
-        token: payload.token,
-        error: null
-      }),
-    [requestFail.toString()]: (
-      state,
-      { payload }: Action<{ error: string }>
-    ) => ({
+    [requestSuccess.toString()]: (state, { payload }: Action<{ user: User; token: string }>) => ({
+      ...state,
+      fetching: false,
+      user: payload.user,
+      token: payload.token,
+      error: null,
+    }),
+    [requestFail.toString()]: (state, { payload }: Action<{ error: string }>) => ({
       ...state,
       fetching: false,
       user: null,
       token: null,
-      error: payload.error
+      error: payload.error,
     }),
     [getMe.toString()]: (state) => ({ ...state, fetching: true }),
   },

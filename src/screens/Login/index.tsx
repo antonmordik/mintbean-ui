@@ -9,17 +9,15 @@ const Login: React.FC = () => {
   return (
     <Layout>
       <div className={styles.title}>
-        <h1>
-          Welcome to Bermuda See game!
-        </h1>
+        <h1>Welcome to Bermuda See game!</h1>
       </div>
       <div className={styles.container}>
-        <SignIn/>
+        <SignIn />
         <div className={styles.devider} />
-        <SignUp/>
+        <SignUp />
       </div>
     </Layout>
-  )
-}
+  );
+};
 
 export default Login;

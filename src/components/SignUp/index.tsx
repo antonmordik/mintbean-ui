@@ -12,21 +12,33 @@ const SignUp: React.FC = () => {
   const [confirm, setConfirm] = useState('');
   const [nickname, setNickname] = useState('');
 
-  const onEmailChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.currentTarget.value);
-  }, [setEmail]);
+  const onEmailChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setEmail(e.currentTarget.value);
+    },
+    [setEmail],
+  );
 
-  const onPasswordChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.currentTarget.value);
-  }, [setPassword]);
+  const onPasswordChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setPassword(e.currentTarget.value);
+    },
+    [setPassword],
+  );
 
-  const onConfirmChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setConfirm(e.currentTarget.value);
-  }, [setConfirm]);
+  const onConfirmChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setConfirm(e.currentTarget.value);
+    },
+    [setConfirm],
+  );
 
-  const onNicknameChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setNickname(e.currentTarget.value);
-  }, [setNickname]);
+  const onNicknameChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setNickname(e.currentTarget.value);
+    },
+    [setNickname],
+  );
 
   const onBtnSubmit = useCallback(() => {
     if (password === confirm) {
@@ -37,13 +49,7 @@ const SignUp: React.FC = () => {
   return (
     <div className={styles.container}>
       <h2>Sign Up</h2>
-      <Input
-        type="email"
-        placeholder="Email"
-        value={email}
-        onChange={onEmailChange}
-        className={styles.input}
-      />
+      <Input type="email" placeholder="Email" value={email} onChange={onEmailChange} className={styles.input} />
       <Input.Password
         type="password"
         placeholder="Password"
@@ -67,9 +73,11 @@ const SignUp: React.FC = () => {
         minLength={3}
         maxLength={16}
       />
-      <Button type="primary" onClick={onBtnSubmit}>Sign up</Button>
+      <Button type="primary" onClick={onBtnSubmit}>
+        Sign up
+      </Button>
     </div>
-  )
-}
+  );
+};
 
 export default SignUp;

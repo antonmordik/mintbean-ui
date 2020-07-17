@@ -12,7 +12,6 @@ import rootReducer from './reducer';
 
 const sagaMiddleware = createSagaMiddleware();
 
-
 const getEnhancers = () => {
   return applyMiddleware(sagaMiddleware, routerMiddleware(history));
 };

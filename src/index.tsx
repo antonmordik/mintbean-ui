@@ -13,11 +13,9 @@ ReactDOM.render(
   <Suspense fallback={'loader'}>
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <PersistGate persistor={persistor}>
-          {routes}
-        </PersistGate>
+        <PersistGate persistor={persistor}>{routes}</PersistGate>
       </ConnectedRouter>
     </Provider>
   </Suspense>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
