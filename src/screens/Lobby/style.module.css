@@ -1,7 +1,7 @@
 .title {
   text-align: center;
-  margin-top: 80px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+  margin-bottom: 30px;
 }
 
 .menu {
@@ -19,10 +19,28 @@
 
 .stats {
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .label {
   margin-right: 10px;
   transform: translateY(-1px);
+}
+
+.popupTitle {
+  margin-top: 25px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 500px) {
+  .menu {
+    grid-template-columns: max-content max-content max-content;
+    grid-column-gap: 5px;
+    padding: 10px 10px;
+  }
+
+  .logout {
+    grid-column: 3;
+  }
 }

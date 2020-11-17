@@ -1,0 +1,91 @@
+.block {
+  width: 100%;
+  height: calc(100vh - 350px);
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-column-gap: 20px;
+}
+
+.user {
+  padding: 10px 30px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.user:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.window {
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.title {
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  width: 100%;
+}
+
+.chat {
+  width: 100%;
+  height: calc(100vh - 423px);
+  background-color: rgba(0, 0, 0, 0.01);
+  overflow-y: auto;
+}
+
+.input {
+  width: 100%;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  height: 40px;
+  padding: 3px;
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-column-gap: 3px;
+}
+
+.messageWrapper {
+  display: grid;
+  padding: 5px 8px;
+}
+
+.self {
+  background-color: #1890ff;
+  color: white;
+  max-width: 60%;
+  width: max-content;
+  padding: 4px 12px;
+  border-radius: 6px 6px 0 6px;
+  justify-self: end;
+}
+
+.opponent {
+  background-color: white;
+  max-width: 60%;
+  width: max-content;
+  padding: 4px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 6px 6px 6px 0;
+}
+
+@media screen and (max-width: 500px) {
+  .block {
+    height: calc(100vh - 260px);
+    grid-template-columns: 1fr;
+    grid-column-gap: 0;
+    grid-row-gap: 10px;
+    grid-template-rows: max-content 1fr;
+  }
+
+  .userlist {
+    display: flex;
+    flex-direction: row;
+    height: max-content;
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .chat {
+    height: calc(100vh - 396px);
+  }
+}
